@@ -5,165 +5,258 @@ import java.util.Scanner;
 public class Problem10NumberAsWords {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String numberInDigits = scan.nextLine();
-        char digit1 = numberInDigits.charAt(0);
-        char digit2 = '0';
-        char digit3 = '0';
-        String firstWord = "";
-        String secondDigitAsWords = "";
-        String lastWord = "";
+        int number = Integer.parseInt(scan.nextLine());
 
-        if (numberInDigits.length() == 2) {
-            digit2 = numberInDigits.charAt(1);
+        if (number == 0) {
+            System.out.println("Zero");
         }
 
-        if (numberInDigits.length() == 3) {
-            digit2 = numberInDigits.charAt(1);
-            digit3 = numberInDigits.charAt(2);
-        }
+        int hundreds = number / 100;
 
-        switch (digit1) {
-            case '1':
-                firstWord = "one";
+        switch (hundreds) {
+            case 0:
+                System.out.print("");
                 break;
-            case '2':
-                firstWord = "two";
+            case 1:
+                System.out.print("One hundred and ");
                 break;
-            case '3':
-                firstWord = "three";
+            case 2:
+                System.out.print("Two hundred and ");
                 break;
-            case '4':
-                firstWord = "four";
+            case 3:
+                System.out.print("Three hundred and ");
                 break;
-            case '5':
-                firstWord = "five";
+            case 4:
+                System.out.print("Four hundred and ");
                 break;
-            case '6':
-                firstWord = "six";
+            case 5:
+                System.out.print("Five hundred and ");
                 break;
-            case '7':
-                firstWord = "seven";
+            case 6:
+                System.out.print("Six hundred and ");
                 break;
-            case '8':
-                firstWord = "eight";
+            case 7:
+                System.out.print("Seven hundred and ");
                 break;
-            case '9':
-                firstWord = "nine";
+            case 8:
+                System.out.print("Eight hundred and ");
                 break;
-            case '0':
-                firstWord = "zero";
+            case 9:
+                System.out.print("Nine hundred and ");
                 break;
         }
 
-        switch (digit3) {
-            case '1':
-                lastWord = "one";
-                break;
-            case '2':
-                lastWord = "two";
-                break;
-            case '3':
-                lastWord = "three";
-                break;
-            case '4':
-                lastWord = "four";
-                break;
-            case '5':
-                lastWord = "five";
-                break;
-            case '6':
-                lastWord = "six";
-                break;
-            case '7':
-                lastWord = "seven";
-                break;
-            case '8':
-                lastWord = "eight";
-                break;
-            case '9':
-                lastWord = "nine";
-                break;
-            case '0':
-                lastWord = "";
-                break;
-        }
+        number = number % 100;
+        int tens = number / 10;
 
-        switch (digit2) {
-            case '1':
+        switch (tens) {
+            case 0:
+                System.out.print("");
+                break;
+            case 1:
 
-                switch (digit3) {
-                    case '1':
-                        secondDigitAsWords = "eleven";
+                switch (number) {
+                    case 10:
+                        if (hundreds == 0) {
+                            System.out.print("Ten");
+                        } else {
+                            System.out.print("ten");
+                        }
                         break;
-                    case '2':
-                        secondDigitAsWords = "twelve";
+                    case 11:
+                        if (hundreds == 0) {
+                            System.out.print("Eleven");
+                        } else {
+                            System.out.print("eleven");
+                        }
                         break;
-                    case '3':
-                        secondDigitAsWords = "thirteen";
+                    case 12:
+                        if (hundreds == 0) {
+                            System.out.print("Twelve");
+                        } else {
+                            System.out.print("twelve");
+                        }
                         break;
-                    case '4':
-                        secondDigitAsWords = "fourteen";
+                    case 13:
+                        if (hundreds == 0) {
+                            System.out.print("Thirteen");
+                        } else {
+                            System.out.print("thirteen");
+                        }
                         break;
-                    case '5':
-                        secondDigitAsWords = "fifteen";
+                    case 14:
+                        if (hundreds == 0) {
+                            System.out.print("Fourteen");
+                        } else {
+                            System.out.print("fourteen");
+                        }
                         break;
-                    case '6':
-                        secondDigitAsWords = "sixteen";
+                    case 15:
+                        if (hundreds == 0) {
+                            System.out.print("Fifteen");
+                        } else {
+                            System.out.print("fifteen");
+                        }
                         break;
-                    case '7':
-                        secondDigitAsWords = "seventeen";
+                    case 16:
+                        if (hundreds == 0) {
+                            System.out.print("Sixteen");
+                        } else {
+                            System.out.print("sixteen");
+                        }
                         break;
-                    case '8':
-                        secondDigitAsWords = "eighteen";
+                    case 17:
+                        if (hundreds == 0) {
+                            System.out.print("Seventeen");
+                        } else {
+                            System.out.print("seventeen");
+                        }
                         break;
-                    case '9':
-                        secondDigitAsWords = "nineteen";
+                    case 18:
+                        if (hundreds == 0) {
+                            System.out.print("Eighteen");
+                        } else {
+                            System.out.print("eighteen");
+                        }
                         break;
-                    case '0':
-                        secondDigitAsWords = "ten";
+                    case 19:
+                        if (hundreds == 0) {
+                            System.out.print("Nineteen");
+                        } else {
+                            System.out.print("nineteen");
+                        }
                         break;
                 }
+                break;
 
+            case 2:
+                if (hundreds == 0) {
+                    System.out.print("Twenty ");
+                } else {
+                    System.out.print("twenty ");
+                }
                 break;
-            case '2':
-                secondDigitAsWords = "twenty" + " " + lastWord;
+            case 3:
+                if (hundreds == 0) {
+                    System.out.print("Thirty ");
+                } else {
+                    System.out.print("thirty ");
+                }
                 break;
-            case '3':
-                secondDigitAsWords = "thirty" + " " + lastWord;
+            case 4:
+                if (hundreds == 0) {
+                    System.out.print("Forty ");
+                } else {
+                    System.out.print("forty ");
+                }
                 break;
-            case '4':
-                secondDigitAsWords = "forty" + " " + lastWord;
+            case 5:
+                if (hundreds == 0) {
+                    System.out.print("Fifty ");
+                } else {
+                    System.out.print("fifty ");
+                }
                 break;
-            case '5':
-                secondDigitAsWords = "fifty" + " " + lastWord;
+            case 6:
+                if (hundreds == 0) {
+                    System.out.print("Sixty ");
+                } else {
+                    System.out.print("sixty ");
+                }
                 break;
-            case '6':
-                secondDigitAsWords = "sixty" + " " + lastWord;
+            case 7:
+                if (hundreds == 0) {
+                    System.out.print("Seventy ");
+                } else {
+                    System.out.print("seventy ");
+                }
                 break;
-            case '7':
-                secondDigitAsWords = "seventy" + " " + lastWord;
+            case 8:
+                if (hundreds == 0) {
+                    System.out.print("Eighty ");
+                } else {
+                    System.out.print("eighty ");
+                }
                 break;
-            case '8':
-                secondDigitAsWords = "eighty" + " " + lastWord;
-                break;
-            case '9':
-                secondDigitAsWords = "ninety" + " " + lastWord;
-                break;
-            case '0':
-                secondDigitAsWords = "";
+            case 9:
+                if (hundreds == 0) {
+                    System.out.print("Ninety ");
+                } else {
+                    System.out.print("ninety ");
+                }
                 break;
         }
 
-        if (numberInDigits.length() == 1) {
-            System.out.println(firstWord);
-        } else if (numberInDigits.length() == 2) {
-            System.out.println(secondDigitAsWords);
-        } else if (numberInDigits.length() == 3) {
+        if (tens != 1) {
+            number = number % 10;
 
-            if (digit2 != 0 && digit3 != 0) {
-                System.out.println(firstWord + " hundred and " + secondDigitAsWords);
-            } else {
-                System.out.println(firstWord + " hundred");
+            switch (number) {
+                case 0:
+                    System.out.print("");
+                    break;
+                case 1:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("One");
+                    } else {
+                        System.out.print("one");
+                    }
+                    break;
+                case 2:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Two");
+                    } else {
+                        System.out.print("two");
+                    }
+                    break;
+                case 3:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Three");
+                    } else {
+                        System.out.print("Three");
+                    }
+                    break;
+                case 4:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Four");
+                    } else {
+                        System.out.print("four");
+                    }
+                    break;
+                case 5:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Five");
+                    } else {
+                        System.out.print("five");
+                    }
+                    break;
+                case 6:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Six");
+                    } else {
+                        System.out.print("six");
+                    }
+                    break;
+                case 7:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Seven");
+                    } else {
+                        System.out.print("seven");
+                    }
+                    break;
+                case 8:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Eight");
+                    } else {
+                        System.out.print("eight");
+                    }
+                    break;
+                case 9:
+                    if (hundreds == 0 && tens == 0) {
+                        System.out.print("Nine");
+                    } else {
+                        System.out.print("nine");
+                    }
+                    break;
             }
         }
     }
